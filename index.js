@@ -7,7 +7,7 @@ const router = require('./router');
 const mongoose = require('mongoose');
 const cors = require('cors');
 //DB setup
-mongoose.connect('mongodb://localhost/book-trader7');
+mongoose.connect('mongodb://'+process.env.username+':'+process.env.password+'@ds217131.mlab.com:17131/book-exchange');
 //app setup
 //type: */* tells bodyParser that it will parse any body request using json
 app.use(cors());
