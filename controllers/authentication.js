@@ -1,11 +1,11 @@
 const User = require('../models/user');
 const jwt = require('jwt-simple');
-const config = require('../config');
+// const config = require('../config');
 
 function tokenForUser(user) {
     //json web tokens have a subject property
     const timestamp = new Date().getTime();
-    return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
+    return jwt.encode({ sub: user.id, iat: timestamp }, process.env.secret);
 }
 exports.signin = function(req, res, next) {
     //user has already had their email and password auth'd
